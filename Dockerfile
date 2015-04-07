@@ -12,5 +12,8 @@ ADD apache-config.conf /etc/apache2/sites-available/000-default.conf
 RUN groupadd -r datahub && useradd -r -m -g datahub datahub && adduser datahub sudo \
       && echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
+# Add the ext .htaccess file
+ADD htaccess-ext /home/datahub/htaccess-ext
+
 ADD startup.sh /
 CMD ["/bin/bash", "/startup.sh"]

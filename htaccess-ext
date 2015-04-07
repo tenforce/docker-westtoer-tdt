@@ -1,0 +1,6 @@
+AuthType Basic
+AuthName "Authentication Required"
+AuthUserFile "/home/datahub/feeds/.htpasswd"
+Require valid-user
+
+Options +Indexes
