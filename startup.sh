@@ -24,6 +24,7 @@ chown www-data:www-data /home/datahub/htaccess-ext
 chmod 644 /home/datahub/feeds/.htpasswd
 
 # Link mappings and crons
+mkdir -p /home/datahub/live
 rm /home/datahub/live/mappings 2>/dev/null
 ln -s /app/datahub-config/datatank/mappings /home/datahub/live/
 rm /home/datahub/live/crons 2>/dev/null
