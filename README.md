@@ -7,8 +7,7 @@ Docker for Westtoer Datatank application
         --link my-mysql:mysql \
         --link my-virtuoso:virtuoso \
         --volume /path/to/datatank/application:/app/tdt-core \
-        --volume /path/to/mapping/files:/home/datahub/live/mappings \
-        --volume /path/to/cronjobs:/home/datahub/live/crons \
+        --volume /path/to/datahub-config:/app/datahub-config \
         --volume /path/to/external/feeds/:/home/datahub/feeds \
         -h data.mytank.com \
         -e GITHUB_TOKEN=myGitHubToken \
@@ -20,7 +19,11 @@ The hostname is the public hostname via which the Datatank application will be a
 
 The MySQL connection must be correctly configured in `/path/to/datatank/application/app/config/database.php`. The user and database must already be created.
 
-The cronjobs folder must also contain `crons.conf` which will be installed as crontab file.
+The SPARQL endpoint must be correctly configured in `/path/to/datatank/application/public/snorql/sparql.php`
+
+The cronjobs folder must contain `crons.conf` which will be installed as crontab file.
+
+The feeds folder must contain an `.htpasswd` file.
 
 ## Executing Laravel CLI tasks
 Enter The Datatank docker, go to The Datatank application folder and run the task (e.g. migrations)
