@@ -35,7 +35,7 @@ cd /home/datahub/live/crons
 chmod +x *.sh
 
 # Install crontab file of the datahub user
-su - datahub -c "crontab /home/datahub/live/crons/crons.conf"
+crontab -u datahub /home/datahub/live/crons/crons.conf
 
 # Datatank installation
 cd /app/tdt-core
