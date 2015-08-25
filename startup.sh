@@ -1,10 +1,14 @@
 #!/bin/bash
 
+# Remove Tutum files
+rm /app/index.php
+rm /app/logo.png
+
 # Make feeds folder accessible to TDT
 chown -R www-data:www-data /home/datahub/feeds/
 chmod 2755 -R /home/datahub/feeds/
 
-# Link TDT public folder
+# Link TDT public folder to Apache root config
 mkdir -p /home/datahub/apps/default
 rm /home/datahub/apps/default/public 2>/dev/null
 ln -s /app/tdt-core/public /home/datahub/apps/default/
@@ -13,22 +17,16 @@ ln -s /app/tdt-core/public /home/datahub/apps/default/
 rm /app/tdt-core/public/ext 2>/dev/null
 ln -s /app/datahub-config/ext /app/tdt-core/public
 
-# Make Snorql app available
-rm /app/snorql 2>/dev/null
-ln -s /app/tdt-core/public/snorql /app
-
-# Make htaccess-ext availabe to TDT
-chown www-data:www-data /home/datahub/htaccess-ext
+# Make .htaccess of the ext folder availabe to TDT
+chown www-data:www-data /app/datahub-config/ext/.htaccess
 
 # Restrict access to htpasswd
 chmod 644 /home/datahub/feeds/.htpasswd
 
-# Link mappings and crons
+# Link cron jobs
 mkdir -p /home/datahub/live
-rm /home/datahub/live/mappings 2>/dev/null
-ln -s /app/datahub-config/datatank/mappings /home/datahub/live/
 rm /home/datahub/live/crons 2>/dev/null
-ln -s /app/datahub-config/ETL/crons /home/datahub/live/
+ln -s /app/datahub-config/crons /home/datahub/live/
 
 # Make cron jobs executable
 cd /home/datahub/live/crons
