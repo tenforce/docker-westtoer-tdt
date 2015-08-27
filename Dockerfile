@@ -1,8 +1,9 @@
 FROM tutum/apache-php
 
 RUN apt-get update \
-      && apt-get install -y git apt-utils memcached curl php5-memcache php5-mcrypt php5-mysql php5-curl cron \
+      && apt-get install -y git apt-utils memcached curl libapache2-mod-proxy-html libxml2-dev php5-memcache php5-mcrypt php5-mysql php5-curl cron \
       && a2enmod rewrite \
+      && a2enmod proxy proxy_http \
       && php5enmod mcrypt
 
 # Update the apache sites available with the datatank config
