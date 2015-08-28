@@ -11,7 +11,7 @@ rm /app/tdt-core/public/ext 2>/dev/null
 rm /home/datahub/live/crons 2>/dev/null
 
 # Make feeds folder accessible to TDT
-chown -R www-data:www-data /home/datahub/feeds/
+chown -R datahub:datahub /home/datahub/feeds/
 chmod 2755 -R /home/datahub/feeds/
 
 # Link TDT public folder to Apache root config
