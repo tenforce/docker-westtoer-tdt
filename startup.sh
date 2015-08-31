@@ -9,6 +9,7 @@ rm /home/datahub/apps/default/public 2>/dev/null
 rm /app/tdt-core/public/ext/feeds 2>/dev/null
 rm /app/tdt-core/public/ext 2>/dev/null
 rm /home/datahub/live/crons 2>/dev/null
+rm /home/datahub/live/scripts 2>/dev/null
 
 # Make feeds folder accessible to TDT
 chown -R datahub:datahub /home/datahub/feeds/
@@ -30,11 +31,14 @@ chown www-data:www-data /app/datahub-config/ext/.htaccess
 # Restrict access to htpasswd
 chmod 644 /home/datahub/feeds/.htpasswd
 
-# Link cron jobs
+# Link cron jobs and scripts folder
 mkdir -p /home/datahub/live
 ln -s /app/datahub-config/crons /home/datahub/live/
+ln -s /app/datahub-config/scripts /home/datahub/live/
 
-# Make cron jobs executable
+# Make scripts and cron jobs executable
+cd /home/datahub/live/scripts
+chmod +x *.sh
 cd /home/datahub/live/crons
 chmod +x *.sh
 
