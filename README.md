@@ -9,6 +9,7 @@ Docker for Westtoer Datatank application
         --volume /path/to/datatank/application:/app/tdt-core \
         --volume /path/to/datahub-config:/app/datahub-config \
         --volume /path/to/external/feeds/:/home/datahub/feeds \
+        --volume /path/to/external/ttl/:/home/datahub/ttl \
         -h data.mytank.com \
         -e GITHUB_TOKEN=myGitHubToken \
         -d tenforce/westtoer-tdt
