@@ -7,6 +7,7 @@ rm /app/logo.png
 # Remove old symbolic links
 rm /home/datahub/apps/default/public 2>/dev/null
 rm /app/tdt-core/public/ext/feeds 2>/dev/null
+rm /app/tdt-core/public/ext/ttl 2>/dev/null
 rm /app/tdt-core/public/ext 2>/dev/null
 rm /home/datahub/live/crons 2>/dev/null
 rm /home/datahub/live/scripts 2>/dev/null
@@ -24,6 +25,9 @@ ln -s /app/datahub-config/ext /app/tdt-core/public
 
 # Link feeds folder in TDT public/ext folder
 ln -s /home/datahub/feeds /app/tdt-core/public/ext/
+
+# Link ttl folder in TDT public/ext folder
+ln -s /home/datahub/ttl /app/tdt-core/public/ext/
 
 # Make .htaccess of the ext folder availabe to TDT
 chown www-data:www-data /app/datahub-config/ext/.htaccess
