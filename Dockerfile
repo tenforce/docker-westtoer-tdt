@@ -1,7 +1,7 @@
 FROM tutum/apache-php
 
 RUN apt-get update \
-      && apt-get install -y git apt-utils memcached curl libapache2-mod-proxy-html libxml2-dev php5-memcache php5-mcrypt php5-mysql php5-curl cron ruby1.9.1 \
+      && apt-get install -y git apt-utils memcached curl libapache2-mod-proxy-html libxml2-dev php5-memcache php5-memcached php5-mcrypt php5-mysql php5-curl cron ruby1.9.1 \
       && a2enmod rewrite \
       && a2enmod proxy proxy_http \
       && php5enmod mcrypt
