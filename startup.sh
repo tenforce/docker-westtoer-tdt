@@ -14,7 +14,7 @@ rm /home/datahub/live/scripts 2>/dev/null
 
 # Make feeds folder accessible to TDT
 chown -R datahub:datahub /home/datahub/feeds/
-chmod 2755 -R /home/datahub/feeds/
+chmod 2777 -R /home/datahub/feeds/
 
 # Link TDT public folder to Apache root config
 mkdir -p /home/datahub/apps/default
@@ -58,7 +58,7 @@ composer install --no-scripts
 chmod -R 777 /app/tdt-core/app/storage/
 
 # Start cron in the background
-cron -f &
+# cron -f &
 
 # Restart apache
 service apache2 restart
