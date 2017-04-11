@@ -60,7 +60,7 @@ chmod -R 777 /app/tdt-core/app/storage/
 # Start cron in the background
 # cron -f &
 
-# Restart apache
-service apache2 restart
-
-tail -f /var/log/apache2/error.log
+# Start apache
+source /etc/apache2/envvars
+tail -F /var/log/apache2/* &
+exec apachectl -e info -D FOREGROUND
