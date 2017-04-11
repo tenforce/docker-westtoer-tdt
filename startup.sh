@@ -62,5 +62,5 @@ chmod -R 777 /app/tdt-core/app/storage/
 
 # Start apache
 source /etc/apache2/envvars
-tail -F /var/log/apache2/* &
+tail -Fq /var/log/apache2/* &
 exec apachectl -e info -D FOREGROUND
